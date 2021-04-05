@@ -29,7 +29,7 @@ $(document).ready(function() {
     /********************** OWL carousel ***************/
     var owl = $('.carousel-one');
     owl.owlCarousel({
-        loop: false,
+        loop: true,
         autoplay: true,
         autoplayTimeout: 8000,
         nav: true,
