@@ -5,7 +5,8 @@
 3.  Burger
 4.  Header
 5.  Form
-6.  Slider  
+6.  Slider
+7.  Services  
 
 */
 
@@ -13,8 +14,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 /* 2.  General styles */
-$padding-standart: 120px 0px;
-$padding-small: 90px 0px;
+$padding-standart: 90px 0px;
+$padding-small: 50px 0px;
 $typography-color-standart: 16px;
 $black: #000;
 $white: #fff;
@@ -31,6 +32,26 @@ $pink: rgb(253, 89, 116);
     }
 }
 
+@keyframes slideTop {
+    from {
+        bottom: -160px;
+    }
+
+    to {
+        bottom: 0;
+    }
+}
+
+@keyframes slideTopDesk {
+    from {
+        bottom: -1000px;
+    }
+
+    to {
+        bottom: 150px;
+    }
+}
+
 body {
     color: $black;
     letter-spacing: 0;
@@ -41,11 +62,11 @@ body {
 }
 
 section {
-    padding: $padding-standart;
+    padding: $padding-small;
     text-align: center;
 
     @media (min-width: 768px) {
-        padding: $padding-small;
+        padding: $padding-standart;
     }
 }
 
@@ -82,17 +103,39 @@ a {
     }
 }
 
+.owl-item-btnWrap {
+    text-align: center;
+
+    @media (min-width: 992px) {
+        text-align: left;
+    }
+}
+
+.btn-blue {
+    background-color: #45aaff;
+    color: $white;
+    font-weight: 500;
+    border-radius: 50px;
+    padding: 8px 24px;
+    font-size: 14px;
+    transition: .2s;
+
+    &:hover {
+        background-color: #1293ff;
+    }
+}
+
 /* 3.  Burger */
 /* Mobile navigation */
 .toggle_mnu {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 40px;
     position: fixed;
     z-index: 100;
     border: none;
     right: 0;
-    top: 0;
-    background: transparent;
+    top: 5px;
+    background: rgba(239, 239, 239, .5);
     display: block;
     z-index: 999;
 
@@ -112,7 +155,7 @@ a {
 
 .sandwich {
     width: 28px;
-    height: 28px;
+    height: 20px;
     position: absolute;
     top: 2px;
     bottom: 0;
@@ -969,19 +1012,156 @@ textarea {
 
         .owl-item {
 
+            &.active {
+
+                .owl-item-text {
+                    animation-name: slideTop;
+                    animation-duration: .6s;
+                    animation-fill-mode: both;
+                    bottom: 0px;
+                    right: 0px;
+                    display: block;
+                    width: 100%;
+                    position: absolute;
+                    background-color: rgba(15, 98, 120, .5);
+                    color: #fff;
+                    text-transform: uppercase;
+                    text-align: left;
+                    padding: 20px;
+
+                    @media (min-width: 992px) {
+                        animation-name: slideTopDesk;
+                        animation-duration: .6s;
+                        animation-fill-mode: both;
+                        background-color: rgb(15, 98, 120);
+                        max-width: 500px;
+                        padding: 30px;
+                        right: 65px;
+                        bottom: 150px;
+                        position: absolute;
+                    }
+
+                    @media (min-width: 1200px) {
+                        right: 10%;
+                        padding: 60px 30px;
+                        max-width: 585px;
+                    }
+
+                    @media (min-width: 1400px) {
+                        right: 21%;
+                    }
+
+                    h2 {
+                        font-size: 14px;
+                        font-weight: bold;
+
+                        @media (min-width: 525px) {
+                            font-size: 22px;
+                        }
+
+                        @media (min-width: 992px) {
+                            line-height: 1;
+                            font-size: 32px;
+                            margin-bottom: 20px;
+                        }
+                    }
+
+                    p {
+                        font-size: 12px;
+                        padding-bottom: 10px;
+                        border-bottom: solid 5px #45aaff;
+                        margin-bottom: 20px;
+
+                        @media (min-width: 525px) {
+                            font-size: 14px;
+                            margin-bottom: 30px;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
             picture {
 
                 source, img {
-                    height: 320px;
+                    height: 465px;
                     object-fit: cover;
-                    object-position: left;
+                    object-position: -197px;
 
-                    @media (min-width: 768px) { 
-                        height: unset;
-                        object-fit: unset;
+                    @media (min-width: 992px) { 
+                        height: 550px;
+                        object-fit: cover;
+                        object-position: -200px;
+                    }
+
+                    @media (min-width: 1200px) { 
+                        height: 660px;
+                        object-fit: cover;
+                        object-position: -250px;
+                    }
+
+                    @media (min-width: 1400px) { 
                         object-position: unset;
                     }
                 }
+            }
+
+            .owl-item-text {
+                display: none;
+            }
+        }
+    }
+}
+
+
+/* 7.  Services */
+.services {
+
+    .services__item {
+        color: $white;
+        padding: 30px 20px;
+
+        .services__item-icon {
+            min-height: 120px;
+
+            svg {
+                margin-bottom: 20px;
+            }
+        }
+
+        &:nth-child(1) {
+            background-color: #088eff;
+        }
+
+        &:nth-child(2) {
+            background-color: #2bc41d;
+        }
+
+        &:nth-child(3) {
+            background-color: #45aaff;
+        }
+
+        &:nth-child(4) {
+            background-color: #fcae07;
+        }
+
+        h4 {
+            font-size: 15px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0;
+        }
+
+        p {
+            font-size: 13px;
+            word-break: break-word;
+            min-height: 400px;
+        }
+
+        .btn-blue {
+
+            &:hover {
+                background-color: #21304c;
             }
         }
     }

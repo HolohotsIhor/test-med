@@ -5,7 +5,8 @@
 3.  Burger
 4.  Header
 5.  Form
-6.  Slider  
+6.  Slider
+7.  Services  
 
 */
 /* 1.  Fonts including */
@@ -22,6 +23,30 @@
   to {
     right: 0; } }
 
+@-webkit-keyframes slideTop {
+  from {
+    bottom: -160px; }
+  to {
+    bottom: 0; } }
+
+@keyframes slideTop {
+  from {
+    bottom: -160px; }
+  to {
+    bottom: 0; } }
+
+@-webkit-keyframes slideTopDesk {
+  from {
+    bottom: -1000px; }
+  to {
+    bottom: 150px; } }
+
+@keyframes slideTopDesk {
+  from {
+    bottom: -1000px; }
+  to {
+    bottom: 150px; } }
+
 body {
   color: #000;
   letter-spacing: 0;
@@ -31,7 +56,7 @@ body {
   font-size: 16px; }
 
 section {
-  padding: 120px 0px;
+  padding: 50px 0px;
   text-align: center; }
   @media (min-width: 768px) {
     section {
@@ -62,17 +87,36 @@ a {
     text-decoration: none;
     color: #fff; }
 
+.owl-item-btnWrap {
+  text-align: center; }
+  @media (min-width: 992px) {
+    .owl-item-btnWrap {
+      text-align: left; } }
+
+.btn-blue {
+  background-color: #45aaff;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 50px;
+  padding: 8px 24px;
+  font-size: 14px;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s; }
+  .btn-blue:hover {
+    background-color: #1293ff; }
+
 /* 3.  Burger */
 /* Mobile navigation */
 .toggle_mnu {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 40px;
   position: fixed;
   z-index: 100;
   border: none;
   right: 0;
-  top: 0;
-  background: transparent;
+  top: 5px;
+  background: rgba(239, 239, 239, 0.5);
   display: block;
   z-index: 999; }
   @media (min-width: 768px) {
@@ -86,7 +130,7 @@ a {
 
 .sandwich {
   width: 28px;
-  height: 28px;
+  height: 20px;
   position: absolute;
   top: 2px;
   bottom: 0;
@@ -808,16 +852,117 @@ textarea {
     margin: 0; }
   .slider .owl-carousel .owl-nav [class*=owl-]:hover {
     background: transparent; }
+  .slider .owl-stage .owl-item.active .owl-item-text {
+    -webkit-animation-name: slideTop;
+            animation-name: slideTop;
+    -webkit-animation-duration: .6s;
+            animation-duration: .6s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    bottom: 0px;
+    right: 0px;
+    display: block;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(15, 98, 120, 0.5);
+    color: #fff;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 20px; }
+    @media (min-width: 992px) {
+      .slider .owl-stage .owl-item.active .owl-item-text {
+        -webkit-animation-name: slideTopDesk;
+                animation-name: slideTopDesk;
+        -webkit-animation-duration: .6s;
+                animation-duration: .6s;
+        -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+        background-color: #0f6278;
+        max-width: 500px;
+        padding: 30px;
+        right: 65px;
+        bottom: 150px;
+        position: absolute; } }
+    @media (min-width: 1200px) {
+      .slider .owl-stage .owl-item.active .owl-item-text {
+        right: 10%;
+        padding: 60px 30px;
+        max-width: 585px; } }
+    @media (min-width: 1400px) {
+      .slider .owl-stage .owl-item.active .owl-item-text {
+        right: 21%; } }
+    .slider .owl-stage .owl-item.active .owl-item-text h2 {
+      font-size: 14px;
+      font-weight: bold; }
+      @media (min-width: 525px) {
+        .slider .owl-stage .owl-item.active .owl-item-text h2 {
+          font-size: 22px; } }
+      @media (min-width: 992px) {
+        .slider .owl-stage .owl-item.active .owl-item-text h2 {
+          line-height: 1;
+          font-size: 32px;
+          margin-bottom: 20px; } }
+    .slider .owl-stage .owl-item.active .owl-item-text p {
+      font-size: 12px;
+      padding-bottom: 10px;
+      border-bottom: solid 5px #45aaff;
+      margin-bottom: 20px; }
+      @media (min-width: 525px) {
+        .slider .owl-stage .owl-item.active .owl-item-text p {
+          font-size: 14px;
+          margin-bottom: 30px;
+          font-size: 16px; } }
   .slider .owl-stage .owl-item picture source, .slider .owl-stage .owl-item picture img {
-    height: 320px;
+    height: 465px;
     -o-object-fit: cover;
        object-fit: cover;
-    -o-object-position: left;
-       object-position: left; }
-    @media (min-width: 768px) {
+    -o-object-position: -197px;
+       object-position: -197px; }
+    @media (min-width: 992px) {
       .slider .owl-stage .owl-item picture source, .slider .owl-stage .owl-item picture img {
-        height: unset;
-        -o-object-fit: unset;
-           object-fit: unset;
+        height: 550px;
+        -o-object-fit: cover;
+           object-fit: cover;
+        -o-object-position: -200px;
+           object-position: -200px; } }
+    @media (min-width: 1200px) {
+      .slider .owl-stage .owl-item picture source, .slider .owl-stage .owl-item picture img {
+        height: 660px;
+        -o-object-fit: cover;
+           object-fit: cover;
+        -o-object-position: -250px;
+           object-position: -250px; } }
+    @media (min-width: 1400px) {
+      .slider .owl-stage .owl-item picture source, .slider .owl-stage .owl-item picture img {
         -o-object-position: unset;
            object-position: unset; } }
+  .slider .owl-stage .owl-item .owl-item-text {
+    display: none; }
+
+/* 7.  Services */
+.services .services__item {
+  color: #fff;
+  padding: 30px 20px; }
+  .services .services__item .services__item-icon {
+    min-height: 120px; }
+    .services .services__item .services__item-icon svg {
+      margin-bottom: 20px; }
+  .services .services__item:nth-child(1) {
+    background-color: #088eff; }
+  .services .services__item:nth-child(2) {
+    background-color: #2bc41d; }
+  .services .services__item:nth-child(3) {
+    background-color: #45aaff; }
+  .services .services__item:nth-child(4) {
+    background-color: #fcae07; }
+  .services .services__item h4 {
+    font-size: 15px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0; }
+  .services .services__item p {
+    font-size: 13px;
+    word-break: break-word;
+    min-height: 400px; }
+  .services .services__item .btn-blue:hover {
+    background-color: #21304c; }

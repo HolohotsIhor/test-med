@@ -30,10 +30,9 @@ $(document).ready(function() {
     var owl = $('.carousel-one');
     owl.owlCarousel({
         loop: true,
-        autoplay: true,
+        autoplay: false,
         autoplayTimeout: 8000,
         nav: true,
-        margin: 10,
         responsive: {
             0: {
                 items: 1
